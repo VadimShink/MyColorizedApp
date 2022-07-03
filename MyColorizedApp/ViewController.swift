@@ -9,11 +9,48 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var rgbView: UIView!
+    
+    @IBOutlet weak var redText: UILabel!
+    @IBOutlet weak var greenText: UILabel!
+    @IBOutlet weak var blueText: UILabel!
+    
+    @IBOutlet weak var redValueSlider: UISlider!
+    @IBOutlet weak var greenValueSlider: UISlider!
+    @IBOutlet weak var blueValueSlider: UISlider!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        rgbView.layer.cornerRadius = 15
+        redValueSlider.minimumTrackTintColor = .red
+        greenValueSlider.minimumTrackTintColor = .green
+        
+        setColor()
     }
-
-
+    
+    @IBAction func addTextForRedLabel(_ sender: UISlider) {
+        setColor()
+        redText.text = string(from: sender)
+    }
+    @IBAction func addTextForGreenLabel(_ sender: UISlider) {
+        setColor()
+        greenText.text = string(from: sender)
+    }
+    @IBAction func addTextForBlueLabel(_ sender: UISlider) {
+        setColor()
+        blueText.text = string(from: sender)
+    }
+    
+    private func string(from slider: UISlider) -> String {
+        String(Int(slider.value))
+    }
+    
+    private func setColor() {
+        rgbView.backgroundColor = UIColor(red: CGFloat(redValueSlider.value)/255,
+                                          green: CGFloat(greenValueSlider.value)/255,
+                                          blue: CGFloat(blueValueSlider.value)/255,
+                                          alpha: 1)
+    }
 }
 
