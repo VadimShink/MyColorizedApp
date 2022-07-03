@@ -27,6 +27,9 @@ class ViewController: UIViewController {
         greenValueSlider.minimumTrackTintColor = .green
         
         setColor()
+        redValueSlider.value = 0
+        greenValueSlider.value = 0
+        blueValueSlider.value = 0
     }
     
     @IBAction func addTextForRedLabel(_ sender: UISlider) {
