@@ -52,6 +52,11 @@ class ColorViewController: UIViewController {
         setColor()
         blueText.text = string(from: sender)
     }
+    @IBAction func myDoneButtonPressed() {
+        delegate?.setColor(rgbView.backgroundColor ?? .white)
+        dismiss(animated: true)
+    }
+    
     
     private func string(from slider: UISlider) -> String {
         String(Int(slider.value))
