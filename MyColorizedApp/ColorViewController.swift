@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ColorViewController: UIViewController {
 
     @IBOutlet weak var rgbView: UIView!
     

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="egW-3g-t2L">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Color View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MyColorizedApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ColorViewController" customModule="MyColorizedApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -98,6 +98,12 @@
                                     </slider>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pUw-Wj-Ngh">
+                                <rect key="frame" x="180.5" y="662" width="53" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Done"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -107,13 +113,16 @@
                             <constraint firstItem="fzC-LQ-UDp" firstAttribute="leading" secondItem="Ubc-EH-VHq" secondAttribute="trailing" constant="10" id="9hE-x5-K5p"/>
                             <constraint firstItem="aaO-UU-sv1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Mnp-Bf-a0j"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aaO-UU-sv1" secondAttribute="trailing" constant="16" id="P1V-gm-veS"/>
+                            <constraint firstItem="pUw-Wj-Ngh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RMT-k1-1OZ"/>
                             <constraint firstItem="Ubc-EH-VHq" firstAttribute="top" secondItem="aaO-UU-sv1" secondAttribute="bottom" constant="50" id="Z2G-Sp-Lnw"/>
                             <constraint firstItem="6YU-SY-mCH" firstAttribute="centerY" secondItem="Ubc-EH-VHq" secondAttribute="centerY" id="goV-W0-RQx"/>
                             <constraint firstItem="aaO-UU-sv1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="jX0-h9-bsi"/>
                             <constraint firstItem="Ubc-EH-VHq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="mBa-ec-DwN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pUw-Wj-Ngh" secondAttribute="bottom" constant="160" id="yyH-IL-7Fs"/>
                             <constraint firstItem="fzC-LQ-UDp" firstAttribute="top" secondItem="aaO-UU-sv1" secondAttribute="bottom" constant="50" id="z8M-ls-dZe"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="pMt-kB-zDP"/>
                     <connections>
                         <outlet property="blueText" destination="qlG-9n-KoG" id="LHm-LU-z1z"/>
                         <outlet property="blueValueSlider" destination="ooO-5h-ZaO" id="YV9-PN-Tkq"/>
@@ -126,7 +135,47 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-13.043478260869566" y="63.616071428571423"/>
+            <point key="canvasLocation" x="2035" y="64"/>
+        </scene>
+        <!--Main View Controller-->
+        <scene sceneID="Yv5-e9-xLO">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="7nd-ly-OBm" customClass="MainViewController" customModule="MyColorizedApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dYx-62-6Uu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="MaS-Vh-d0Q"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="6sw-aw-KRR">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="8Pp-y4-6wQ">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="Eut-59-dUn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d2h-1M-7e7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1050.7246376811595" y="63.616071428571423"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Kuw-mL-ZTy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="egW-3g-t2L" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TnQ-Xj-lAJ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7nd-ly-OBm" kind="relationship" relationship="rootViewController" id="q03-Vx-0f2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UMW-fZ-Rz5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140.57971014492756" y="63.616071428571423"/>
         </scene>
     </scenes>
     <resources>
