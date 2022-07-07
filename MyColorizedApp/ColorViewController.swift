@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol ColorViewControllerDelegate {
+    func setColor(_ color: UIColor)
+}
+
 class ColorViewController: UIViewController {
 
     @IBOutlet weak var rgbView: UIView!
@@ -19,6 +23,10 @@ class ColorViewController: UIViewController {
     @IBOutlet weak var greenValueSlider: UISlider!
     @IBOutlet weak var blueValueSlider: UISlider!
     
+    // MARK: - Public Properties
+    var delegate: ColorViewControllerDelegate!
+    var mainViewColor: UIColor!
+    let button = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
